@@ -2,11 +2,8 @@ extends StaticBody
 
 class_name Tile
 
-var mesh_instance
-var collision_shape
-
 func _init(mesh, materials):
-	mesh_instance = MeshInstance.new()
+	var mesh_instance = MeshInstance.new()
 	mesh_instance.set_mesh(mesh)
 	mesh_instance.create_trimesh_collision()
 	add_child(mesh_instance)
