@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody",
+"class": "Tile",
+"language": "GDScript",
+"path": "res://Tile.gd"
+}, {
 "base": "VehicleBody",
 "class": "Vehicle",
 "language": "GDScript",
 "path": "res://Vehicle.gd"
 } ]
 _global_script_class_icons={
+"Tile": "",
 "Vehicle": ""
 }
 
