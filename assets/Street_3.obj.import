@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Street_3.obj-8d95aee28fc983fb471e8b5b93564413.mesh"
+
+[deps]
+
+files=[ "res://.import/Street_3.obj-8d95aee28fc983fb471e8b5b93564413.mesh" ]
+
+source_file="res://assets/Street_3.obj"
+dest_files=[ "res://.import/Street_3.obj-8d95aee28fc983fb471e8b5b93564413.mesh", "res://.import/Street_3.obj-8d95aee28fc983fb471e8b5b93564413.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
