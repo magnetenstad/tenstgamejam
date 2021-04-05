@@ -6,6 +6,7 @@ onready var mes0 = load("res://assets/Street_0.obj")
 onready var mes1 = load("res://assets/Street_1.obj")
 onready var mes2 = load("res://assets/Street_2.obj")
 onready var mes3 = load("res://assets/Street_3.obj")
+onready var mes4 = load("res://assets/Street_4.obj")
 onready var mat0 = load("res://assets/materials/asphalt.tres")
 onready var mat1 = load("res://assets/materials/curb.tres")
 onready var road_map = load("res://assets/road_map.png")
@@ -16,6 +17,15 @@ var tile_size = 7
 func generate_binary_grid(w, h):
 	var data = road_map.get_data()
 	data.lock()
+onready var meshes = [
+	[mes0, [mat1]],
+	[mes1, [mat0, mat1]],
+	[mes2, [mat0, mat1]],
+	[mes3, [mat0, mat1]],
+	[mes4, [mat0, mat1]]
+]
+
+func generate_grid(w, h):
 	var grid = []
 	for x in range(w):
 		grid.append([])
@@ -24,11 +34,11 @@ func generate_binary_grid(w, h):
 	return grid
 
 func generate_tiles(grid):
-	var meshes = [mes0, mes1, mes2, mes3]
 	for x in grid.size():
 		var col = grid[x]
 		for z in col.size():
-			var tile = Tile.new(meshes[col[z]], [mat0, mat1])
+			var mesh = meshes[col[z]]
+			var tile = Tile.new(mesh[0], mesh[1])
 			tile.transform = tile.transform.translated(Vector3(x * tile_size, 0, z * tile_size))
 			var r = rng.randi_range(0, 3)
 			var phi = r * PI / 2
