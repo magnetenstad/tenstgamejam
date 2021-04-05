@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Vehicle",
 "language": "GDScript",
 "path": "res://Vehicle.gd"
+}, {
+"base": "Camera",
+"class": "VehicleCamera",
+"language": "GDScript",
+"path": "res://VehicleCamera.gd"
 } ]
 _global_script_class_icons={
 "Map": "",
 "Tile": "",
-"Vehicle": ""
+"Vehicle": "",
+"VehicleCamera": ""
 }
 
 [application]
