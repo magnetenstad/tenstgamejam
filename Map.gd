@@ -8,16 +8,19 @@ onready var mes2 = load("res://assets/Street_2.obj")
 onready var mes3 = load("res://assets/Street_3.obj")
 onready var mat0 = load("res://assets/materials/asphalt.tres")
 onready var mat1 = load("res://assets/materials/curb.tres")
+onready var road_map = load("res://assets/road_map.png")
 
 var rng = RandomNumberGenerator.new()
 var tile_size = 7
 
-func generate_grid(w, h):
+func generate_binary_grid(w, h):
+	var data = road_map.get_data()
+	data.lock()
 	var grid = []
 	for x in range(w):
 		grid.append([])
 		for z in range(h):
-			grid[x].append(rng.randi_range(0, 3))
+			grid[x].append(data.get_pixel(x, z).gray())
 	return grid
 
 func generate_tiles(grid):
@@ -35,6 +38,6 @@ func generate_tiles(grid):
 
 func _ready():
 	#rng.randomize()
-	var grid = generate_grid(16, 16)
+	var grid = generate_binary_grid(16, 16)
 	generate_tiles(grid)
 	transform = transform.translated(Vector3(- 8 * tile_size, 0, - 8 * tile_size))
