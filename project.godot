@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Tile.gd"
 }, {
-"base": "VehicleBody",
-"class": "Vehicle",
-"language": "GDScript",
-"path": "res://deprecated/Vehicle.gd"
-}, {
 "base": "Camera",
 "class": "VehicleCamera",
 "language": "GDScript",
@@ -32,7 +27,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Map": "",
 "Tile": "",
-"Vehicle": "",
 "VehicleCamera": ""
 }
 
