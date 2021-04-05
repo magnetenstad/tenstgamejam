@@ -1,18 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/Street_0.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/materials/curb.tres" type="Material" id=2]
-[ext_resource path="res://assets/materials/asphalt.tres" type="Material" id=3]
+[ext_resource path="res://assets/Street_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/Street_2.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/Street_3.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/Street_4.obj" type="ArrayMesh" id=4]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( 0, 0, 0, 20, 0, 0, 20, 0, 20, 0, 0, 0, 20, 0, 20, 0, 0, 20, 20, 0, 0, 20, -1, 0, 20, -1, 20, 20, 0, 0, 20, -1, 20, 20, 0, 20, 20, -1, 0, 0, -1, 0, 0, -1, 20, 20, -1, 0, 0, -1, 20, 20, -1, 20, 0, -1, 0, 0, 0, 0, 0, 0, 20, 0, -1, 0, 0, 0, 20, 0, -1, 20, 20, -1, 20, 0, -1, 20, 0, 0, 20, 20, -1, 20, 0, 0, 20, 20, 0, 20, 20, 0, 0, 0, 0, 0, 0, -1, 0, 20, 0, 0, 0, -1, 0, 20, -1, 0, 0, 0.25, 0, 7.5, 0.25, 0, 7.5, 0.25, 20, 0, 0.25, 0, 7.5, 0.25, 20, 0, 0.25, 20, 7.5, 0.25, 0, 7.5, 0, 0, 7.5, 0, 20, 7.5, 0.25, 0, 7.5, 0, 20, 7.5, 0.25, 20, 7.5, 0, 0, 0, 0, 0, 0, 0, 20, 7.5, 0, 0, 0, 0, 20, 7.5, 0, 20, 0, 0, 0, 0, 0.25, 0, 0, 0.25, 20, 0, 0, 0, 0, 0.25, 20, 0, 0, 20, 7.5, 0, 20, 0, 0, 20, 0, 0.25, 20, 7.5, 0, 20, 0, 0.25, 20, 7.5, 0.25, 20, 7.5, 0.25, 0, 0, 0.25, 0, 0, 0, 0, 7.5, 0.25, 0, 0, 0, 0, 7.5, 0, 0, 12.5, 0.25, 0, 20, 0.25, 0, 20, 0.25, 20, 12.5, 0.25, 0, 20, 0.25, 20, 12.5, 0.25, 20, 20, 0.25, 0, 20, 0, 0, 20, 0, 20, 20, 0.25, 0, 20, 0, 20, 20, 0.25, 20, 20, 0, 0, 12.5, 0, 0, 12.5, 0, 20, 20, 0, 0, 12.5, 0, 20, 20, 0, 20, 12.5, 0, 0, 12.5, 0.25, 0, 12.5, 0.25, 20, 12.5, 0, 0, 12.5, 0.25, 20, 12.5, 0, 20, 20, 0, 20, 12.5, 0, 20, 12.5, 0.25, 20, 20, 0, 20, 12.5, 0.25, 20, 20, 0.25, 20, 20, 0.25, 0, 12.5, 0.25, 0, 12.5, 0, 0, 20, 0.25, 0, 12.5, 0, 0, 20, 0, 0 )
 
-[node name="Tile" type="StaticBody"]
+[node name="StaticBody" type="StaticBody"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-material/0 = ExtResource( 3 )
-material/1 = ExtResource( 2 )
+material/0 = null
+material/1 = null
+
+[node name="Street_0" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55864, 10.3324, 24.9665 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="Street_3" type="MeshInstance" parent="MeshInstance/Street_0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0633, 13.7707, 10.7203 )
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
+
+[node name="Street_1" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03085, 12.2635, 20.9915 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+
+[node name="Street_2" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8727, 10.1774, 23.1499 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

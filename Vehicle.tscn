@@ -1,63 +1,65 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Vehicle.tres" type="Material" id=1]
+[ext_resource path="res://assets/Car_wheel.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/Car_body.obj" type="ArrayMesh" id=2]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0.00467646, 0.479113, 1.00672, 0.00784159, 1.48321, 3.32291, 0.00793016, 0, 1.49144, 0.00793016, 0, 3.97753, 0.0170444, 0.741573, 3.96406, 0.0185093, 1.47533, 1.67467, 0.02742, 0.741573, 1.04034, 0.0302601, 1.33846, 1.55635, 1.99214, 1.33846, 1.55635, 1.99245, 0.912106, 3.81663, 1.99498, 0.741573, 1.04034, 1.99868, 1.29972, 3.48155, 2, 0.0106933, 1.50591, 2, 0.0106933, 3.95615, 2, 0.483733, 1.03292, 2, 0.741573, 3.95615, 2, 1.47245, 1.67788, 2, 1.47245, 3.3109 )
 
-[sub_resource type="CapsuleMesh" id=2]
-
-[sub_resource type="CylinderMesh" id=3]
-top_radius = 0.5
-bottom_radius = 0.5
-height = 0.5
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -0.0224719, -0.0224719, 0.561631, -0.0224719, 0.426861, 0.966292, -0.0224719, 0.741573, -0.0224719, -0.0224719, 0.741573, 0.966292, 0.0383344, 0, 0.00660938, 1.98414, 0, 0.00660938, 2.04494, -0.0224719, 0.561631, 2.04494, 0.426861, 0.966292, 2.04494, 0.741573, -0.0224719, 2.04494, 0.741573, 0.966292 )
 
 [node name="VehicleBody" type="VehicleBody"]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725055, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 1, 0.2, 2.357 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 1, 0.2, 2.357 )
 shape = SubResource( 1 )
 
-[node name="CSGMesh" type="CSGMesh" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725055, 0 )
-mesh = SubResource( 2 )
-material = ExtResource( 1 )
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 1, 0.2, 2.357 )
+shape = SubResource( 2 )
 
-[node name="VehicleWheel" type="VehicleWheel" parent="."]
+[node name="VehicleWheel_FL" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 use_as_traction = true
 
-[node name="CSGMesh" type="CSGMesh" parent="VehicleWheel"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 3 )
-material = ExtResource( 1 )
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel_FL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -1 )
+mesh = ExtResource( 1 )
+material/0 = null
 
-[node name="VehicleWheel2" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
+[node name="VehicleWheel_BL" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.357 )
 use_as_traction = true
 use_as_steering = true
 
-[node name="CSGMesh2" type="CSGMesh" parent="VehicleWheel2"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 3 )
-material = ExtResource( 1 )
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel_BL"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -1 )
+mesh = ExtResource( 1 )
+material/0 = null
 
-[node name="VehicleWheel3" type="VehicleWheel" parent="."]
+[node name="VehicleWheel_FR" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
 use_as_traction = true
 
-[node name="CSGMesh3" type="CSGMesh" parent="VehicleWheel3"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 3 )
-material = ExtResource( 1 )
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel_FR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -1 )
+mesh = ExtResource( 1 )
+material/0 = null
 
-[node name="VehicleWheel4" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+[node name="VehicleWheel_BR" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.357 )
 use_as_traction = true
 use_as_steering = true
 
-[node name="CSGMesh4" type="CSGMesh" parent="VehicleWheel4"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 3 )
-material = ExtResource( 1 )
+[node name="MeshInstance" type="MeshInstance" parent="VehicleWheel_BR"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -1 )
+mesh = ExtResource( 1 )
+material/0 = null
 
 [node name="Vehicle" type="Spatial" parent="."]
