@@ -47,7 +47,6 @@ func generate_tiles(grid):
 			add_child(tile)
 
 func _ready():
-	#rng.randomize()
 	var grid = generate_binary_grid(16, 16)
 	generate_tiles(grid)
 	transform = transform.translated(Vector3(- 8 * tile_size, 0, - 8 * tile_size))
