@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "VehicleBody",
+"class": "Vehicle",
+"language": "GDScript",
+"path": "res://Vehicle.gd"
+} ]
 _global_script_class_icons={
-
+"Vehicle": ""
 }
 
 [application]
