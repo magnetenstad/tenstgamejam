@@ -27,10 +27,14 @@ func generate_tiles(grid):
 		for z in col.size():
 			var tile = Tile.new(meshes[col[z]], [mat0, mat1])
 			tile.transform = tile.transform.translated(Vector3(x * tile_size, 0, z * tile_size))
+			var r = rng.randi_range(0, 3)
+			var phi = r * PI / 2
+			tile.transform.basis = tile.transform.basis.rotated(Vector3(0, 1, 0), phi)
+			tile.transform = tile.transform.translated(Vector3(- int(r == 2 or r == 1) * tile_size, 0, - int(r == 3 or r == 2) * tile_size))
 			add_child(tile)
 
 func _ready():
-	rng.randomize()
+	#rng.randomize()
 	var grid = generate_grid(16, 16)
 	generate_tiles(grid)
 	transform = transform.translated(Vector3(- 8 * tile_size, 0, - 8 * tile_size))
