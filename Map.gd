@@ -14,9 +14,6 @@ onready var road_map = load("res://assets/road_map.png")
 var rng = RandomNumberGenerator.new()
 var tile_size = 7
 
-func generate_binary_grid(w, h):
-	var data = road_map.get_data()
-	data.lock()
 onready var meshes = [
 	[mes0, [mat1]],
 	[mes1, [mat0, mat1]],
@@ -25,7 +22,10 @@ onready var meshes = [
 	[mes4, [mat0, mat1]]
 ]
 
-func generate_grid(w, h):
+
+func generate_binary_grid(w, h):
+	var data = road_map.get_data()
+	data.lock()
 	var grid = []
 	for x in range(w):
 		grid.append([])
