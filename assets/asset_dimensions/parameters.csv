@@ -1,0 +1,5 @@
+tile_size,mm,7 mm
+tile_t,mm,1 mm
+curb_t,mm,0.25 mm
+road_w,mm,5 mm
+curb_w,mm,( tile_size - road_w ) / 2

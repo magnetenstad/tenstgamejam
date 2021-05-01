@@ -1,16 +1,13 @@
-extends Node
+extends VehicleBody
 
+class_name Vehicle
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	set_linear_damp(0.2)
+	
+func _process(delta):
+	_vehicle_process(delta)
+	
+func _vehicle_process(_delta):
+	set_steering(get_steering() * (1 - abs(get_linear_velocity().length()) / 1000))
+	set_engine_force(0)

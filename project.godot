@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "VehicleBody",
 "class": "Vehicle",
 "language": "GDScript",
-"path": "res://deprecated/Vehicle.gd"
+"path": "res://Vehicle.gd"
 }, {
 "base": "Camera",
 "class": "VehicleCamera",

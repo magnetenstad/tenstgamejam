@@ -2,11 +2,11 @@ extends Spatial
 
 class_name Map
 
-onready var mes0 = load("res://assets/Street_0.obj")
-onready var mes1 = load("res://assets/Street_1.obj")
-onready var mes2 = load("res://assets/Street_2.obj")
-onready var mes3 = load("res://assets/Street_3.obj")
-onready var mes4 = load("res://assets/Street_4.obj")
+onready var no_road = load("res://assets/No_road.obj")
+onready var straight = load("res://assets/Straight.obj")
+onready var turn = load("res://assets/Turn.obj")
+onready var t_intersection = load("res://assets/T_intersection.obj")
+onready var x_intersection = load("res://assets/X_intersection.obj")
 onready var mat0 = load("res://assets/materials/asphalt.tres")
 onready var mat1 = load("res://assets/materials/curb.tres")
 onready var road_map = load("res://assets/road_map.png")
@@ -17,27 +17,27 @@ onready var get_type_and_orientation = {
 	0 : [0, 0],
 	1 : [0, 0],
 	2 : [0, 0],
-	3 : [2, 1],
+	3 : [2, 2],
 	4 : [0, 0],
 	5 : [1, 1],
-	6 : [2, 2],
-	7 : [3, 1],
+	6 : [2, 3],
+	7 : [3, 3],
 	8 : [0, 0],
-	9 : [2, 0],
+	9 : [2, 1],
 	10 : [1, 0],
-	11 : [3, 0],
-	12 : [2, 3],
-	13 : [3, 3],
-	14 : [3, 2],
+	11 : [3, 2],
+	12 : [2, 0],
+	13 : [3, 1],
+	14 : [3, 0],
 	15 : [4, 0]
 }
 
 onready var meshes = [
-	[mes0, [mat1]],
-	[mes1, [mat0, mat1]],
-	[mes2, [mat0, mat1]],
-	[mes3, [mat0, mat1]],
-	[mes4, [mat0, mat1]]
+	[no_road, [mat1]],
+	[straight, [mat0, mat1]],
+	[turn, [mat1, mat0]],
+	[t_intersection, [mat0, mat1]],
+	[x_intersection, [mat0, mat1]]
 ]
 
 
@@ -71,7 +71,6 @@ func generate_tiles(grid):
 			var r = type_and_orientation[1]
 			var phi = r * PI / 2
 			tile.transform.basis = tile.transform.basis.rotated(Vector3(0, 1, 0), phi)
-			tile.transform = tile.transform.translated(Vector3(- int(r == 2 or r == 1) * tile_size, 0, - int(r == 3 or r == 2) * tile_size))
 			add_child(tile)
 
 func _ready():
